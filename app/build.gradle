@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
+
+    defaultConfig {
+        applicationId "com.render.demo"
+        minSdkVersion 16
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    repositories {
+        flatDir {
+            dirs 'aars', project(':player').file('libs')
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:26.1.0'
+
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    // 图片预览
+    implementation 'com.github.chrisbanes:PhotoView:2.1.2'
+
+    implementation project(':player')
+}
+
+repositories {
+    google()
+    maven {
+        url "https://jitpack.io"
+    }
+
+}

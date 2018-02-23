@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/root"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:weightSum="2">
+
+
+
+    <com.render.demo.RendedWidget
+        android:id="@+id/render"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <com.render.demo.photo.PhotoViewPager
+            android:id="@+id/photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <tv.lycam.player.StandardPlayer
+            android:id="@+id/player_view"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            app:player="alivc"/>
+
+    </com.render.demo.RendedWidget>
+    <android.opengl.GLSurfaceView
+        android:id="@+id/surface"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:layout_weight="1"/>
+</LinearLayout>
